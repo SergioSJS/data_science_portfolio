@@ -1,27 +1,62 @@
-#FROM python:3
-FROM python:3.7
-RUN apt-get update && apt-get install -y python3-pip
+FROM jupyter/base-notebook:8ccdfc1da8d5
 
+USER root
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-    && apt-get install -y nodejs
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential=12.4ubuntu1 \
+        emacs \
+        git \
+        inkscape \
+        jed \
+        libsm6 \
+        libxext-dev \
+        libxrender1 \
+        lmodern \
+        netcat \
+        unzip \
+        nano \
+        curl \
+        wget \
+        gfortran \
+        cmake \
+        bsdtar  \
+        rsync \
+        imagemagick \
+        gnuplot-x11 \
+        libxtst6 \
+        libgtk2.0.0 \
+        libgconf2-4 \
+        xvfb \
+        libxss1 \
+        libopenblas-base \
+        python3-dev && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+#RUN cd $HOME/work;\
+#    pip install --upgrade pip; \
+#    git clone --single-branch -b master https://github.com/mathieuboudreau/orca-plotly-dockerfile.git;\
+#    cd notebooks;\
+#    chmod -R 777 $HOME/work/orca-plotly-dockerfile;
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-    
-ENV JUPYTER_ENABLE_LAB=yes
+RUN chmod -R 777 $HOME/work/
 
-# Create a new system user
-RUN useradd -ms /bin/bash jupy
+COPY requirements.txt $HOME/work
+RUN cd $HOME/work;\
+    pip install -r requirements.txt
 
-# Change to this new user
-USER jupy
+# Download orca AppImage, extract it, and make it executable under xvfb
+RUN wget https://github.com/plotly/orca/releases/download/v1.1.1/orca-1.1.1-x86_64.AppImage -P /home
+RUN chmod 777 /home/orca-1.1.1-x86_64.AppImage 
 
-# Set the container working directory to the user home folder
-WORKDIR /home/jupy
+# To avoid the need for FUSE, extract the AppImage into a directory (name squashfs-root by default)
+RUN cd /home && /home/orca-1.1.1-x86_64.AppImage --appimage-extract
+RUN printf '#!/bin/bash \nxvfb-run --auto-servernum --server-args "-screen 0 640x480x24" /home/squashfs-root/app/orca "$@"' > /usr/bin/orca
+RUN chmod 777 /usr/bin/orca
+RUN chmod -R 777 /home/squashfs-root/
 
-# Start the jupyter notebook
-ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0"]
+WORKDIR $HOME/work
 
-# docker run -p 8888:8888 -v ~/Projects/docker/test:/home/demo/test jupy
+USER $NB_UID
