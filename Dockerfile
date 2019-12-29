@@ -35,12 +35,6 @@ RUN apt-get update && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#RUN cd $HOME/work;\
-#    pip install --upgrade pip; \
-#    git clone --single-branch -b master https://github.com/mathieuboudreau/orca-plotly-dockerfile.git;\
-#    cd notebooks;\
-#    chmod -R 777 $HOME/work/orca-plotly-dockerfile;
-
 RUN chmod -R 777 $HOME/work/
 
 COPY requirements.txt $HOME/work
@@ -60,3 +54,7 @@ RUN chmod -R 777 /home/squashfs-root/
 WORKDIR $HOME/work
 
 USER $NB_UID
+
+#/home/jovyan/work/test orca[B
+
+# docker run -p 8888:8888 -v ~/Projects/data_science_portfolio/pokemon-data-analysing:/home/jovyan/work/poke orca
