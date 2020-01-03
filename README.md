@@ -1,7 +1,9 @@
 # Data Science Portfolio
 
 ## Data Analysis and Visualisation
-Coming soon
+* Pokémon for Data Mining and Machine Learning ([Kaggle](https://www.kaggle.com/alopez247/pokemon)): 
+   * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_exploration.ipynb)
+   * Storytelling
 
 ## Other studies
 
