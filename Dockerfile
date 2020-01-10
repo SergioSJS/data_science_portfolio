@@ -2,6 +2,7 @@ FROM jupyter/base-notebook:8ccdfc1da8d5
 
 USER root
 
+# Install dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential=12.4ubuntu1 \
@@ -37,6 +38,7 @@ RUN apt-get update && \
 
 RUN chmod -R 777 $HOME/work/
 
+# Copy and install requirements
 COPY requirements.txt $HOME/work
 RUN cd $HOME/work;\
     pip install -r requirements.txt
@@ -55,6 +57,6 @@ WORKDIR $HOME/work
 
 USER $NB_UID
 
-#/home/jovyan/work/test orca[B
-
-# docker run -p 8888:8888 -v ~/Projects/data_science_portfolio/pokemon-data-analysing:/home/jovyan/work/poke orca
+# to run:
+# docker run -p 8888:8888 -v local_path:/home/jovyan/work/file image_name
+# docker run -p 8888:8888 -v F:\Projects\data_science_portfolio\pokemon-data-analysing\:/home/jovyan/work/poke --name=Jupy_0 jupy
