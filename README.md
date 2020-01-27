@@ -3,7 +3,7 @@
 ## Data Analysis and Visualisation
 * Pokémon for Data Mining and Machine Learning ([Kaggle](https://www.kaggle.com/alopez247/pokemon)): 
    * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_exploration.ipynb)
-   * Storytelling
+   * [Storytelling](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_storytelling.ipynb)
 
 ## Other studies
 
