@@ -37,6 +37,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN chmod -R 777 $HOME/work/
+RUN pip install --upgrade pip
 
 # Copy and install requirements
 COPY requirements.txt $HOME/work
@@ -59,4 +60,3 @@ USER $NB_UID
 
 # to run:
 # docker run -p 8888:8888 -v local_path:/home/jovyan/work/file image_name
-# docker run -p 8888:8888 -v F:\Projects\data_science_portfolio\pokemon-data-analysing\:/home/jovyan/work/poke --name=Jupy_0 jupy
