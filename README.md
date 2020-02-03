@@ -2,8 +2,14 @@
 
 ## Data Analysis and Visualisation
 * Pokémon for Data Mining and Machine Learning ([Kaggle](https://www.kaggle.com/alopez247/pokemon)): 
-   * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_exploration.ipynb)
-   * [Storytelling](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_storytelling.ipynb)
+    * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_exploration.ipynb)
+    * [Storytelling](https://github.com/SergioSJS/data_science_portfolio/blob/master/pokemon-data-analysing/poke_storytelling.ipynb)
+* Journeys made on service by the federal government of Brazil - 2019 ([Dataset](http://www.portaltransparencia.gov.br/download-de-dados/viagens))
+    * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/gov-fed-viagens-servico/gov_br_travel_exploration.ipynb)
+    * [Storytelling]
+
+## Docker Image to Data Science
+[Link](https://github.com/SergioSJS/data_science_portfolio/tree/master/docker)
 
 ## Other studies
 
