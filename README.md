@@ -12,6 +12,9 @@
     * [Report](https://github.com/SergioSJS/Food11_Tech_Report/blob/master/Technical_Report__Exploiting_Deep_Features_Diversity_in_Food_11_Classification.pdf)
 * Survey: Open-set Classification
     * [Survey file](https://github.com/SergioSJS/survey-open-set-classification/blob/master/Survey__Open_set_Classification.pdf)
+* wiki4HE Data Set ([Dataset](http://archive.ics.uci.edu/ml/datasets/wiki4HE))
+    * [Exploration](https://github.com/SergioSJS/data_science_portfolio/blob/master/wiki4HE-analysis/wiki4HE-exploration.ipynb)
+    * [Storytelling](https://github.com/SergioSJS/data_science_portfolio/blob/master/wiki4HE-analysis/wiki4HE-storyteling.pdf)
 
 ## Docker Image to Data Science
 [Link](https://github.com/SergioSJS/data_science_portfolio/tree/master/docker)
